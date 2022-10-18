@@ -1,0 +1,59 @@
+﻿@using Currency.Models
+@using Currency.ResponseObj
+@{
+    ViewBag.Title = "All Crypto Currency";
+}
+@model List<StockEntity>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h3 style="text-align:center;padding:10vh">Stock information</h3>
+        <table class="table table-sm table-striped table-bordered m-2">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Last Price</th>
+                    <th>Change</th>
+                    <th>% Change</th>
+                    <th>Range</th>
+                    <th>15 Days Price Average</th>
+                    <th>15 Days Change</th>
+                    <th>15 Days % Change</th>
+                    <th>15 Days Range</th>
+                    <th>Exchange</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stock in Model)
+                {
+                    <tr>
+                        <td>@stock.symbol</td>
+                        <td>@stock.regularMarketPrice</td>
+                        <td>@stock.regularMarketChange</td>
+                        <td>@stock.regularMarketChangePercent</td>
+                        <td>@stock.regularMarketDayRange</td>
+                        <td>@stock.fiftyDayAverage</td>
+                        <td>@stock.fiftyDayAverageChange</td>
+                        <td>@stock.fiftyDayAverageChangePercent</td>
+                        <td>@stock.fiftyTwoWeekRange</td>
+                        <td>@stock.fullExchangeName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
